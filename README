@@ -27,7 +27,7 @@ BUGS
 There is at least one open bug whereby subsequent writes to the XMP data 
 will lose all of 
 the tags that contain a period in their name.  See this forum for feedback:
-
+  http://www.cpanforum.com/posts/8512
 
 
 

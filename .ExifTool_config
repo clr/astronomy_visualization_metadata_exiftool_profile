@@ -1,0 +1,105 @@
+#------------------------------------------------------------------------------
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+# File:         ExifTool_config  -->  ~/.ExifTool_config
+#
+# Description:  AVM configuration file for Image::ExifTool
+#
+# Notes:        To activate this file, rename it to ".ExifTool_config" and
+#               place it in your home directory or the exiftool application
+#               directory.  This causes ExifTool to automatically load the file
+#               when run.  Your home directory is determined by the first
+#               defined of the following environment variables:
+#
+#                   1. EXIFTOOL_HOME
+#                   2. HOME
+#                   3. HOMEDRIVE + HOMEPATH
+#                   4. (the current directory)
+#
+
+%Image::ExifTool::UserDefined = (
+    'Image::ExifTool::XMP::Main' => {
+        avm => {
+            SubDirectory => {
+                TagTable => 'Image::ExifTool::UserDefined::avm',
+            },
+        },
+        xapRights => {
+            SubDirectory => {
+                TagTable => 'Image::ExifTool::XMP::xapRights',
+            },
+        },
+    },
+);
+
+         
+# This is a basic example of the definition for a new XMP namespace.
+# This table is referenced through a SubDirectory tag definition
+# in the %Image::ExifTool::UserDefined definition above.
+# The namespace prefix for these tags is 'xxx', which corresponds to
+# an ExifTool family 1 group name of 'XMP-xxx'.
+%Image::ExifTool::UserDefined::avm = (
+    GROUPS => { 0 => 'XMP', 1 => 'XMP-avm', 2 => 'Image' },
+    NAMESPACE => { 'avm' => 'http://www.communicatingastronomy.org/avm/1.1/' },
+    WRITABLE => 'string',
+    'Distance' => { },
+    'Distance.Notes' => { },
+    'ReferenceURL' => { },
+    'ID' => { },
+    'Type' => { },
+    'Image.ProductQuality' => { },
+    'Spectral.Notes' => { },
+    'Temporal.StartTime' => { },
+    'Temporal.IntegrationTime' => { },
+    'DatasetID' => { },
+    'Spatial.CoordinateFrame' => { },
+    'Spatial.Equinox' => { },
+    'Spatial.Rotation' => { },
+    'Spatial.CoordsystemProjection' => { },
+    'Spatial.Quality' => { },
+    'Spatial.Notes' => { },
+    'Spatial.FITSheader' => { },
+    'Publisher' => { },
+    'PublisherID' => { },
+    'ResourceID' => { },
+    'ResourceURL' => { },
+    'RelatedResources' => { },
+    'MetadataDate' => { },
+    'MetadataVersion' => { },
+    'iptc_contactID' => { },
+    'iptc_contactURL' => { },
+    'Subject.Category' => { List => 'Bag' },
+    'Facility' => { List => 'Seq' },
+    'Instrument' => { List => 'Seq' },
+    'Spectral.ColorAssignment' => { List => 'Seq' },
+    'Spectral.Band' => { List => 'Seq' },
+    'Spectral.Bandpass' => { List => 'Seq' },
+    'Spectral.CentralWavelength' => { List => 'Seq' },
+    'Spatial.ReferenceValue' => { List => 'Seq' },
+    'Spatial.ReferenceDimension' => { List => 'Seq' },
+    'Spatial.ReferencePixel' => { List => 'Seq' },
+    'Spatial.Scale' => { List => 'Seq' },
+);
+
+# XMP Rights Management schema properties (was formerly xmpRights)
+%Image::ExifTool::XMP::xapRights = (
+    %xmpTableDefaults,
+    GROUPS => { 1 => 'XMP-xapRights', 2 => 'Author' },
+    NAMESPACE => { 'xapRights' => 'http://ns.adobe.com/xap/1.0/rights/' },
+    UsageTerms => { Writable => 'lang-alt' },
+);
+
+#------------------------------------------------------------------------------
+1;  #end
+

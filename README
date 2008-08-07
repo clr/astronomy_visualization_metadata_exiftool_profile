@@ -22,11 +22,25 @@ package Exiftool.  The AVM standard currently supported is version 1.1.
 
 
 
+EXAMPLE USAGE
+------------------------------------------------------------------------------
+Install ExifTool, put the ".ExifTool_config in your user directory and 
+then you can read all of an image's xmp tags with:
+exiftool -b -xmp filename
+And you can write tags too (on one line):
+exiftool -xmp-avm:Distance="far"
+  -xmp-avm:Subject.Category+="first" 
+  -xmp-avm:Subject.Category+="second" 
+  -xmp-iptcCore:CreatorContactInfoCiUrlWork="http://someplace" 
+  filename
+
+
+
 BUGS
 ------------------------------------------------------------------------------
 There is at least one open bug whereby subsequent writes to the XMP data 
-will lose all of 
-the tags that contain a period in their name.  See this forum for feedback:
+will lose all of the tags that contain a period in their name.  See this 
+forum for feedback:
   http://www.cpanforum.com/posts/8512
 
 

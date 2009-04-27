@@ -24,23 +24,64 @@ package Exiftool.  The AVM standard currently supported is version 1.1.
 
 XMP
 ------------------------------------------------------------------------------
-XMP is Adobe's format for embedding an XML file within a multimedia binary file.  EXIF data has been formerly used to embed metadata within a JPG file.  XMP was created to overcome the size and datatype limitations of EXIF.  XMP uses an RDF subset of XML to describe the metadata for an attached multimedia file.  Most of the advantages and disadvantages of XMP revolve around the choice of RDF for the metadata format.
+XMP is Adobe's format for embedding an XML file within a multimedia binary 
+file.  EXIF data has been formerly used to embed metadata within a JPG file.  
+XMP was created to overcome the size and datatype limitations of EXIF.  XMP 
+uses an RDF subset of XML to describe the metadata for an attached multimedia 
+file.  Most of the advantages and disadvantages of XMP revolve around the 
+choice of RDF for the metadata format.
 
 
 
 ADVANTAGES OF XMP
 ------------------------------------------------------------------------------
-EXIF data limited both the size and datatype of metadata that could be attached to a file.  XMP overcomes these limitations by storing arbitrary data in an RDF document.  If current schemas are not sufficient to describe a file, then new schemas can be created, as VAMP did with the creation of the AVM schema [http://www.virtualastronomy.org/avm_metadata.php] to describe astronomical images from NASA telescopes.
+EXIF data limited both the size and datatype of metadata that could be 
+attached to a file.  XMP overcomes these limitations by storing arbitrary 
+data in an RDF document.  If current schemas are not sufficient to describe a 
+file, then new schemas can be created, as VAMP did with the creation of the 
+AVM schema [http://www.virtualastronomy.org/avm_metadata.php] to describe 
+astronomical images from NASA telescopes.
 
 
 
 DISADVANTAGES OF XMP
 ------------------------------------------------------------------------------
 The RDF Format
-RDF describes a data graph in XML.  Data graphs can be useful to describe complex data, especially when all or some of the data is incomplete.  RDF parsers can then be used to query the XMP, with question such as “Was this image taken by Spitzer Telescope?” and get a true / false response.  Unfortunately, the RDF graph has to be consumed in order to query it.  This requires downloading and reading all of the files that contain XMP in order to query for the presence of a value.  Imagine that you want to ask, “Which images were taken by Spitzer Telescope?”  This would require first ingesting all of the files that could possibly be in the answer set, and whittling the set down to only the ones that are true for that value.  This procedure is incredibly inefficient or even impossible for a simple query, especially if the file size for the multimedia is significant.  It would be much more efficient to store the RDF independent of the file, and include a pointer to the RDF processor in the file instead.  In fact, relational databases excel at this type of operation, and have a long successful history of online, standardized deployment.  The decision to embed RDF inside the file poses a technical challenge that makes simple data queries prohibitively expensive for an otherwise routine technical implementation.
+RDF describes a data graph in XML.  Data graphs can be useful to describe 
+complex data, especially when all or some of the data is incomplete.  RDF 
+parsers can then be used to query the XMP, with question such as “Was this 
+image taken by Spitzer Telescope?” and get a true / false response.  
+Unfortunately, the RDF graph has to be consumed in order to query it.  This 
+requires downloading and reading all of the files that contain XMP in order 
+to query for the presence of a value.  Imagine that you want to ask, “Which 
+images were taken by Spitzer Telescope?”  This would require first ingesting 
+all of the files that could possibly be in the answer set, and whittling the 
+set down to only the ones that are true for that value.  This procedure is 
+incredibly inefficient or even impossible for a simple query, especially if 
+the file size for the multimedia is significant.  It would be much more 
+efficient to store the RDF independent of the file, and include a pointer to 
+the RDF processor in the file instead.  In fact, relational databases excel 
+at this type of operation, and have a long successful history of online, 
+standardized deployment.  The decision to embed RDF inside the file poses a 
+technical challenge that makes simple data queries prohibitively expensive 
+for an otherwise routine technical implementation.
 
 The XMP Implementation
-Following the publication of the XMP standard, Adobe released an XMP SDK to facilitate the reading and writing of XMP data into multimedia files.  Unfortunately, the SDK is written in C++, and support in other languages has been slow to follow.  There is a Perl package called EXIFTool that supports reading and writing of XMP data, but it does not use the Adobe SDK and inconsistencies are apparent between the implementations. There is no Ruby wrapper that I know of, although a Python wrapper has recently been released.  RDF is also poorly understood as a subset of XML, which is one of the reasons that Mozilla plans to drop RDF in deference to an embedded SQLite database as a metadata storage mechanism in Firefox; as a result, many potential developers are either turned off by the RDF implementation, or try to treat it as looser XML, which is not consistent with RDF parsers.  Widespread adoption as Adobe pushes the standard could mitigate the difficulties of implementing the XMP parsers, but this is not an open standard, which is sure to be a turnoff among FOSS developers.
+Following the publication of the XMP standard, Adobe released an XMP SDK to 
+facilitate the reading and writing of XMP data into multimedia files.  
+Unfortunately, the SDK is written in C++, and support in other languages has 
+been slow to follow.  There is a Perl package called EXIFTool that supports 
+reading and writing of XMP data, but it does not use the Adobe SDK and 
+inconsistencies are apparent between the implementations. There is no Ruby 
+wrapper that I know of, although a Python wrapper has recently been released.  
+RDF is also poorly understood as a subset of XML, which is one of the reasons 
+that Mozilla plans to drop RDF in deference to an embedded SQLite database as 
+a metadata storage mechanism in Firefox; as a result, many potential 
+developers are either turned off by the RDF implementation, or try to treat 
+it as looser XML, which is not consistent with RDF parsers.  Widespread 
+adoption as Adobe pushes the standard could mitigate the difficulties of 
+implementing the XMP parsers, but this is not an open standard, which is sure 
+to be a turnoff among FOSS developers.
 
 
 

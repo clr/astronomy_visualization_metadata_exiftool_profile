@@ -53,17 +53,19 @@ parsers can then be used to query the XMP, with question such as “Was this
 image taken by Spitzer Telescope?” and get a true / false response.  
 Unfortunately, the RDF graph has to be consumed in order to query it.  This 
 requires downloading and reading all of the files that contain XMP in order 
-to query for the presence of a value.  Imagine that you want to ask, “Which 
-images were taken by Spitzer Telescope?”  This would require first ingesting 
+to query for the presence of a value.  For example, if you want to ask the 
+question, “Which 
+images were taken by Spitzer Telescope?” this would require first ingesting 
 all of the files that could possibly be in the answer set, and whittling the 
 set down to only the ones that are true for that value.  This procedure is 
-incredibly inefficient or even impossible for a simple query, especially if 
-the file size for the multimedia is significant.  It would be much more 
-efficient to store the RDF independent of the file, and include a pointer to 
+inefficient and in many cases impossible for a simple query, especially if 
+the file size for the multimedia is significant.  From my experience thus far
+with RDF, it would be much more 
+efficient to store the RDF or metadata independent of the file, and include a pointer to 
 the RDF processor in the file instead.  In fact, relational databases excel 
 at this type of operation, and have a long successful history of online, 
 standardized deployment.  The decision to embed RDF inside the file poses a 
-technical challenge that makes simple data queries prohibitively expensive 
+technical challenge that makes simple data queries very expensive 
 for an otherwise routine technical implementation.
 
 The XMP Implementation
@@ -80,8 +82,8 @@ a metadata storage mechanism in Firefox; as a result, many potential
 developers are either turned off by the RDF implementation, or try to treat 
 it as looser XML, which is not consistent with RDF parsers.  Widespread 
 adoption as Adobe pushes the standard could mitigate the difficulties of 
-implementing the XMP parsers, but this is not an open standard, which is sure 
-to be a turnoff among FOSS developers.
+implementing the XMP parsers; however, it is not an open standard, which is a
+barrier among FOSS developers.
 
 
 

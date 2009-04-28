@@ -54,14 +54,13 @@ image taken by Spitzer Telescope?” and get a true / false response.
 Unfortunately, the RDF graph has to be consumed in order to query it.  This 
 requires downloading and reading all of the files that contain XMP in order 
 to query for the presence of a value.  For example, if you want to ask the 
-question, “Which 
-images were taken by Spitzer Telescope?” this would require first ingesting 
-all of the files that could possibly be in the answer set, and whittling the 
-set down to only the ones that are true for that value.  This procedure is 
-inefficient and in many cases impossible for a simple query, especially if 
-the file size for the multimedia is significant.  From my experience thus far
-with RDF, it would be much more 
-efficient to store the RDF or metadata independent of the file, and include a pointer to 
+question, “Which images were taken by Spitzer Telescope?” this would require 
+first ingesting all of the files that could possibly be in the answer set, and 
+whittling the set down to only the ones that are true for that value.  This 
+procedure is inefficient and in many cases impossible for a simple query, 
+especially if the file size for the multimedia is significant.  From my 
+experience thus far with RDF, it would be much more efficient to store the 
+RDF or metadata independent of the file, and include a pointer to 
 the RDF processor in the file instead.  In fact, relational databases excel 
 at this type of operation, and have a long successful history of online, 
 standardized deployment.  The decision to embed RDF inside the file poses a 

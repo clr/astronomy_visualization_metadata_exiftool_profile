@@ -51,7 +51,7 @@
 # an ExifTool family 1 group name of 'XMP-xxx'.
 %Image::ExifTool::UserDefined::avm = (
     GROUPS => { 0 => 'XMP', 1 => 'XMP-avm', 2 => 'Image' },
-    NAMESPACE => { 'avm' => 'http://www.communicatingastronomy.org/avm/1.1/' },
+    NAMESPACE => { 'avm' => 'http://www.communicatingastronomy.org/avm/1.0/' },
     WRITABLE => 'string',
     'Distance' => { },
     'Distance.Notes' => { },

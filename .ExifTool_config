@@ -53,7 +53,7 @@
     GROUPS => { 0 => 'XMP', 1 => 'XMP-avm', 2 => 'Image' },
     NAMESPACE => { 'avm' => 'http://www.communicatingastronomy.org/avm/1.0/' },
     WRITABLE => 'string',
-    'Distance' => { },
+    'Distance' => { List => 'Seq' },
     'Distance.Notes' => { },
     'ReferenceURL' => { },
     'ID' => { },

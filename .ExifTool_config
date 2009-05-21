@@ -69,7 +69,7 @@
     'Spatial.CoordsystemProjection' => { },
     'Spatial.Quality' => { },
     'Spatial.Notes' => { List => 'Alt' },
-    'Spatial.FITSheader' => { List => 'Alt' },
+    'Spatial.FITSheader' => { },
     'Publisher' => { },
     'PublisherID' => { },
     'ResourceID' => { },

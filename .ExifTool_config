@@ -50,6 +50,7 @@
 # The namespace prefix for these tags is 'xxx', which corresponds to
 # an ExifTool family 1 group name of 'XMP-xxx'.
 %Image::ExifTool::UserDefined::avm = (
+    %xmpTableDefaults,
     GROUPS => { 0 => 'XMP', 1 => 'XMP-avm', 2 => 'Image' },
     NAMESPACE => { 'avm' => 'http://www.communicatingastronomy.org/avm/1.0/' },
     WRITABLE => 'string',
@@ -59,7 +60,7 @@
     'ID' => { },
     'Type' => { },
     'Image.ProductQuality' => { },
-    'Spectral.Notes' => { List => 'Alt' },
+    'Spectral.Notes' => { Writable => 'lang-alt' },
     'Temporal.StartTime' => { List => 'Seq' },
     'Temporal.IntegrationTime' => { List => 'Seq' },
     'DatasetID' => { List => 'Seq' },
@@ -68,7 +69,7 @@
     'Spatial.Rotation' => { },
     'Spatial.CoordsystemProjection' => { },
     'Spatial.Quality' => { },
-    'Spatial.Notes' => { List => 'Alt' },
+    'Spatial.Notes' => { Writable => 'lang-alt' },
     'Spatial.FITSheader' => { },
     'Publisher' => { },
     'PublisherID' => { },

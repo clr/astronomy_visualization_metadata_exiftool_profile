@@ -60,6 +60,8 @@
     'ID' => { },
     'Type' => { },
     'Image.ProductQuality' => { },
+    'ProposalID' => { List => 'Bag' },
+    'PublicationID' => { List => 'Bag' },
     'Spectral.Notes' => { Writable => 'lang-alt' },
     'Temporal.StartTime' => { List => 'Seq' },
     'Temporal.IntegrationTime' => { List => 'Seq' },
